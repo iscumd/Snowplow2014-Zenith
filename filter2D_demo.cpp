@@ -35,7 +35,7 @@ int main ( int, char** argv )
 
   
 
-   if( !in.data ){ 
+   if( !fin.data ){ 
 	printf("no image");
 
 	return -1; }
