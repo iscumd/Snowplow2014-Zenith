@@ -40,16 +40,16 @@ int main ( int, char** argv )
 
 	return -1; }
 
-  cvtColor( in, src1, CV_BGR2GRAY);
+  cvtColor( fin, src1, CV_BGR2GRAY);
 
 	float a[9]={   -1.0,	0,	1.0,	
 	                -2.0,	0,	2.0,	
 	                -1.0,	0,	1.0};
   Mat kernel( 3, 3, CV_32F, a);
 
-  Mat src( src1.rows, src1.cols, CV_32S);
+  Mat src( src1.rows, src1.cols, CV_16S);
   
-  src1.convertTo(src, CV_32S); 
+  src1.convertTo(src, CV_16S); 
 
   /// Create window
   namedWindow( window_name, CV_WINDOW_AUTOSIZE );
