@@ -35,16 +35,16 @@ int main ( int, char** argv )
 
   
 
-   if( !in.data ){ 
+   if( !fin.data ){ 
 	printf("no image");
 
 	return -1; }
 
-  cvtColor( in, src, CV_BGR2GRAY);
+  cvtColor( fin, src, CV_BGR2GRAY);
 
-	float a[9]={   -1.0,	0,	1.0,	
-	                -2.0,	0,	2.0,	
-	                -1.0,	0,	1.0};
+	float a[9]={   1.0,	2.0,	1.0,	
+	                0,	0,	0,	
+	                -1.0,	-2.0,	-1.0};
   Mat kernel( 3, 3, CV_32F, a);
 
 
@@ -77,11 +77,13 @@ int main ( int, char** argv )
 
 	}
 	D(kernel.cols);
-         imshow( "right side",  abs(dst*4) );
-         imshow( "left side", (dst2*4) );
+         imshow( "up side",  abs(dst*4) );
+         imshow( "down side", (dst2*4) );
          c = waitKey(0);
 	D(c);
          ind++;
 
   return 0;
 }
+
+
