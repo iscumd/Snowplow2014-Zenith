@@ -29,7 +29,7 @@ int main ( int, char** argv )
 
   int c;
 
- Mat src1, dst, dst2, in, fin;
+ Mat src, dst, dst2, in, fin;
   /// Load an image
   fin = imread( argv[1] );
 
@@ -40,16 +40,16 @@ int main ( int, char** argv )
 
 	return -1; }
 
-  cvtColor( fin, src1, CV_BGR2GRAY);
+  cvtColor( fin, src, CV_BGR2GRAY);
 
 	float a[9]={   -1.0,	0,	1.0,	
 	                -2.0,	0,	2.0,	
 	                -1.0,	0,	1.0};
   Mat kernel( 3, 3, CV_32F, a);
 
-  Mat src( src1.rows, src1.cols, CV_16S);
+  //Mat src( src1.rows, src1.cols, CV_16S);
   
-  src1.convertTo(src, CV_16S); 
+  //src1.convertTo(src, CV_16S); 
 
   /// Create window
   namedWindow( window_name, CV_WINDOW_AUTOSIZE );
