@@ -47,9 +47,9 @@ int main ( int, char** argv )
 	                -1.0,	0,	1.0};
   Mat kernel( 3, 3, CV_32F, a);
 
-  Mat src(scr1.rows, scr1.cols, CV_32S);
+  Mat src( src1.rows, src1.cols, CV_32S);
   
-  scr1.convert2(src, CV_32S); 
+  src1.convertTo(src, CV_32S); 
 
   /// Create window
   namedWindow( window_name, CV_WINDOW_AUTOSIZE );
