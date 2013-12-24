@@ -79,8 +79,8 @@ int main ( int, char** argv )
 
 	}
 	D(kernel.cols);
-         imshow( "right side",  (dst*8) );
-         imshow( "left side", (dst2) );
+         imshow( "Multiplied By 8",  (dst*8) );
+         imshow( "Normal", (dst2) );
          c = waitKey(0);
 	D(c);
          ind++;
