@@ -79,7 +79,7 @@ int main ( int, char** argv )
 
 	}
 	D(kernel.cols);
-         imshow( "right side",  (dst*8) );
+         imshow( "right side",  (dst*4) );
          imshow( "left side", (dst2) );
          c = waitKey(0);
 	D(c);
