@@ -45,7 +45,12 @@ int main ( int, char** argv )
 	float a[9]={   -1.0,	0,	1.0,	
 	                -2.0,	0,	2.0,	
 	                -1.0,	0,	1.0};
-  Mat kernel( 3, 3, CV_32F, a);
+
+	float b[9]={ 	1.0,	2,	1.0,	
+	                0,	0,	0,	
+	                -1.0,	-2,	-1.0};
+  Mat horizontal_kernel( 3, 3, CV_32F, a);
+  Mat vertical_kernel( 3, 3, CV_32F, b);
 
   //Mat src( src1.rows, src1.cols, CV_16S);
   
@@ -67,9 +72,9 @@ int main ( int, char** argv )
          kernel_size = 3;
 	    
          /// Apply filter
-         filter2D(src, dst, ddepth , kernel, anchor, delta, BORDER_DEFAULT );
-         filter2D(src, dst2, ddepth , -kernel, anchor, delta, BORDER_DEFAULT );
-	for(int i=0 ; i < kernel.rows; i++){
+         filter2D(src, dst, ddepth , horizontal_kernel, anchor, delta, BORDER_DEFAULT );
+         filter2D(src, dst2, ddepth , vertical_kernel , anchor, delta, BORDER_DEFAULT );
+	/*for(int i=0 ; i < kernel.rows; i++){
 		for (int j=0; j < kernel.cols; j++){
 		
 			fprintf(stderr, "%f,",  V(kernel, i, j, float));
@@ -77,12 +82,12 @@ int main ( int, char** argv )
 		}
 		printf("\n");
 
-	}
-	D(kernel.cols);
-         imshow( "Multiplied By 8",  (dst*8) );
-         imshow( "Normal", (dst2) );
+	}*/
+	//D(kernel.cols);
+         imshow( "Horziontal Multiplied By 8",  (dst*8) );
+         imshow( "Vertical Multiplied By 8", (dst2*8) );
          c = waitKey(0);
-	D(c);
+	//D(c);
          ind++;
 
   return 0;
