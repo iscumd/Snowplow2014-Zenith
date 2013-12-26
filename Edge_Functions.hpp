@@ -7,11 +7,6 @@
 
 void GetHorizontalEdges(cv::Mat &in, cv::Mat &out){
 	
-<<<<<<< HEAD
-	cv::Mat temp;
-	
-=======
->>>>>>> c92c5b7... Cleaned Up Code
 	int ddepth = CV_16S;//Covert to Signed so we have negative and positive values
 	cv::Point anchor = cv::Point( -1, -1 );
  	double delta = 0;
@@ -24,18 +19,12 @@ void GetHorizontalEdges(cv::Mat &in, cv::Mat &out){
 	//Creat matrix to use as Kernel 
 	cv::Mat horizontal_kernel( 3, 3, CV_32F, a);
 	
-	filter2D(in, temp, ddepth , horizontal_kernel, anchor, delta, cv::BORDER_DEFAULT );
+	filter2D(in, out, ddepth , horizontal_kernel, anchor, delta, cv::BORDER_DEFAULT );
 	
-	temp.convertTo(out, CV_64F);//Why dosen't it have negative values and why is it creating noise?
 }
 
 void GetVerticalEdges(cv::Mat &in, cv::Mat &out){
 	
-<<<<<<< HEAD
-	cv::Mat temp;
-	
-=======
->>>>>>> c92c5b7... Cleaned Up Code
 	int ddepth = CV_16S;//Convert to signed so we have negative and positive values
 	cv::Point anchor = cv::Point( -1, -1 );
  	double delta = 0;
@@ -48,8 +37,12 @@ void GetVerticalEdges(cv::Mat &in, cv::Mat &out){
 	//Creat matrix to use as Kernel 
 	cv::Mat vertical_kernel( 3, 3, CV_32F, b);
 	
-	filter2D(in, temp, ddepth , vertical_kernel , anchor, delta, cv::BORDER_DEFAULT );   
-	
-	temp.convertTo(out, CV_64F);//Why dosen't it have negative values and why is it creating noise?
+	filter2D(in, out, ddepth , vertical_kernel , anchor, delta, cv::BORDER_DEFAULT );   
 	               
+}
+
+void GetMagnatude(cv::Mat &horizontal, cv::Mat &vertical, cv::Mat &out){
+
+	if(horizontal.cols == vertical.cols) && (horizontal.rows == vertical.row)
+
 }
