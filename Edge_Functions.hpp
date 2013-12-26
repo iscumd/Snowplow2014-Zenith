@@ -5,7 +5,7 @@
 *********************************************/
 
 
-void GetHorizontalEdges(cv::Mat in, cv::Mat out){
+void GetHorizontalEdges(cv::Mat &in, cv::Mat &out){
 	
 	int ddepth = CV_16S;
 	cv::Point anchor = cv::Point( -1, -1 );
@@ -20,7 +20,7 @@ void GetHorizontalEdges(cv::Mat in, cv::Mat out){
 	filter2D(in, out, ddepth , horizontal_kernel, anchor, delta, cv::BORDER_DEFAULT );
 }
 
-void GetVerticalEdges(cv::Mat in, cv::Mat out){
+void GetVerticalEdges(cv::Mat &in, cv::Mat &out){
 	
 	int ddepth = CV_16S;
 	cv::Point anchor = cv::Point( -1, -1 );
