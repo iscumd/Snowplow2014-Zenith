@@ -24,6 +24,7 @@ void GetHorizontalEdges(cv::Mat &in, cv::Mat &out){
 	filter2D(in, temp, ddepth , horizontal_kernel, anchor, delta, cv::BORDER_DEFAULT );
 	
 	temp.convertTo(out, CV_64F);//Why dosen't it have negative values and why is it creating noise?
+					// See http://stackoverflow.com/questions/13484475/what-are-the-upper-and-lower-limits-and-types-of-pixel-values-in-opencv
 }
 
 void GetVerticalEdges(cv::Mat &in, cv::Mat &out){
@@ -44,6 +45,7 @@ void GetVerticalEdges(cv::Mat &in, cv::Mat &out){
 	
 	filter2D(in, temp, ddepth , vertical_kernel , anchor, delta, cv::BORDER_DEFAULT );   
 	
-	temp.convertTo(out, CV_64F);//Why dosen't it have negative values and why is it creating noise?
+	temp.convertTo(out, CV_64F, 1/32767);//Why dosen't it have negative values and why is it creating noise?
+					// See http://stackoverflow.com/questions/13484475/what-are-the-upper-and-lower-limits-and-types-of-pixel-values-in-opencv
 	               
 }
