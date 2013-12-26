@@ -75,7 +75,7 @@ int main ( int, char** argv )
 	    
          /// Apply filter
          GetHorizontalEdges(src, dst);
-         
+         GetVerticalEdges( src, dst2);
 	/*for(int i=0 ; i < kernel.rows; i++){
 		for (int j=0; j < kernel.cols; j++){
 		
