@@ -52,15 +52,9 @@ int main ( int, char** argv )
 
   cvtColor( fin, src, CV_BGR2GRAY);
 
-	float a[9]={   -1.0,	0,	1.0,	
-	                -2.0,	0,	2.0,	
-	                -1.0,	0,	1.0};
-
-	float b[9]={ 	1.0,	2,	1.0,	
-	                0,	0,	0,	
-	                -1.0,	-2,	-1.0};
-  Mat horizontal_kernel( 3, 3, CV_32F, a);
-  Mat vertical_kernel( 3, 3, CV_32F, b);
+	
+  
+  
 
   //Mat src( src1.rows, src1.cols, CV_16S);
   
@@ -70,9 +64,7 @@ int main ( int, char** argv )
   namedWindow( window_name, CV_WINDOW_AUTOSIZE );
 
   /// Initialize arguments for the filter
-  anchor = Point( -1, -1 );
-  delta = 0;
-  ddepth = CV_16S;
+  
   int i;
   int j;
 
@@ -82,8 +74,8 @@ int main ( int, char** argv )
          kernel_size = 3;
 	    
          /// Apply filter
-         filter2D(src, dst, ddepth , horizontal_kernel, anchor, delta, BORDER_DEFAULT );
-         filter2D(src, dst2, ddepth , vertical_kernel , anchor, delta, BORDER_DEFAULT );
+         GetHorizontalEdges(src, dst);
+         GetVerticalEdges( src, dst2);
 	/*for(int i=0 ; i < kernel.rows; i++){
 		for (int j=0; j < kernel.cols; j++){
 		
