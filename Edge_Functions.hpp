@@ -7,8 +7,11 @@
 
 void GetHorizontalEdges(cv::Mat &in, cv::Mat &out){
 	
+<<<<<<< HEAD
 	cv::Mat temp;
 	
+=======
+>>>>>>> c92c5b7... Cleaned Up Code
 	int ddepth = CV_16S;//Covert to Signed so we have negative and positive values
 	cv::Point anchor = cv::Point( -1, -1 );
  	double delta = 0;
@@ -28,8 +31,11 @@ void GetHorizontalEdges(cv::Mat &in, cv::Mat &out){
 
 void GetVerticalEdges(cv::Mat &in, cv::Mat &out){
 	
+<<<<<<< HEAD
 	cv::Mat temp;
 	
+=======
+>>>>>>> c92c5b7... Cleaned Up Code
 	int ddepth = CV_16S;//Convert to signed so we have negative and positive values
 	cv::Point anchor = cv::Point( -1, -1 );
  	double delta = 0;
