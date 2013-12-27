@@ -41,8 +41,30 @@ void GetVerticalEdges(cv::Mat &in, cv::Mat &out){
 	               
 }
 
-void GetMagnatude(cv::Mat &horizontal, cv::Mat &vertical, cv::Mat &out){
+void GetMagnatudeAndDirection(cv::Mat &horizontal, cv::Mat &vertical, cv::Mat &mag, cv::Mat &direction){
 
-	//if(horizontal.cols == vertical.cols) && (horizontal.rows == vertical.row)
+	double hor_cel, ver_cel;
+	
+	if((horizontal.cols != vertical.cols) || (horizontal.rows != vertical.row)){
+	
+		fprintf(stderr, "Uh Oh! not the same size");
+		
+	}
+	
+	for(int i = 0; i < horizontal.cols; i++){
+	
+		for(int j = 0; j < horizontal.rows; j++){
+		
+		hor_cel = V(horizontal, i, j, double);
+		ver_cel = V(vertical, i, j, double);
+		
+		V(mag, i, j, double) = sqrt( hor_cel*hor_cel + ver_cel*ver_cel );
+		
+		V(direction, i, j, double) = atan2 (ver_cel,hor_cel);
+		
+		}
+	
+	}
+		
 
 }

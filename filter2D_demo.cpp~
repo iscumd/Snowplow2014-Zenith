@@ -36,7 +36,7 @@ int main ( int, char** argv )
 
   int c;
 
- Mat src, dst, dst2, fin;
+ Mat src, hor, ver, fin, mag, dir;
   /// Load an image
   fin = imread( argv[1] );
 
@@ -53,11 +53,18 @@ int main ( int, char** argv )
   namedWindow( window_name, CV_WINDOW_AUTOSIZE );
 	    
          /// Apply filter
-         GetHorizontalEdges(src, dst);//In Edge Functions
-         GetVerticalEdges( src, dst2);
+         GetHorizontalEdges(src, hor);//In Edge Functions
+         GetVerticalEdges( src, ver);
 	
-         imshow( "Horziontal Multiplied By 8",  ((dst/32767)*8) + .5);
-         imshow( "Vertical Multiplied By 8", ((dst2/32768)*8) + .5);
+	
+	
+	GetMagnatudeAndDirection(hor, ver, mag, dir);
+	
+	//imshow() expects values to be between 0 and 1 so I needed to properly shift it.
+         imshow( "Horziontal Multiplied By 8",  ((hor/32767)*8) + .5);
+         imshow( "Vertical Multiplied By 8", ((ver/32768)*8) + .5);
+         imshow( "Magnatude Multiplied By 8", ((mag/32768)*8) + .5);
+         
          c = waitKey(0);
 
   return 0;
