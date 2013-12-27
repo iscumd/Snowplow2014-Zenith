@@ -31,15 +31,12 @@ int main ( int, char** argv )
 {
   /// Declare variables
   
-  Point anchor;
-  double delta;
-  int ddepth;
-  int kernel_size;
+ 
   const char* window_name = "filter2D Demo";
 
   int c;
 
- Mat src, dst, dst2, in, fin;
+ Mat src, dst, dst2, fin;
   /// Load an image
   fin = imread( argv[1] );
 
@@ -52,45 +49,16 @@ int main ( int, char** argv )
 
   cvtColor( fin, src, CV_BGR2GRAY);
 
-	
-  
-  
-
-  //Mat src( src1.rows, src1.cols, CV_16S);
-  
-  //src1.convertTo(src, CV_16S); 
-
   /// Create window
   namedWindow( window_name, CV_WINDOW_AUTOSIZE );
-
-  /// Initialize arguments for the filter
-  
-  int i;
-  int j;
-
-  int ind = 0;
-
-         /// Update kernel size for a normalized box filter
-         kernel_size = 3;
 	    
          /// Apply filter
-         GetHorizontalEdges(src, dst);
+         GetHorizontalEdges(src, dst);//In Edge Functions
          GetVerticalEdges( src, dst2);
-	/*for(int i=0 ; i < kernel.rows; i++){
-		for (int j=0; j < kernel.cols; j++){
-		
-			fprintf(stderr, "%f,",  V(kernel, i, j, float));
-			
-		}
-		printf("\n");
-
-	}*/
-	//D(kernel.cols);
-         imshow( "Horziontal Multiplied By 8",  (dst*8) );
-         imshow( "Vertical Multiplied By 8", (dst2*8) );
+	
+         imshow( "Horziontal Multiplied By 8",  ((dst/32767)*8) + .5);
+         imshow( "Vertical Multiplied By 8", ((dst2/32768)*8) + .5);
          c = waitKey(0);
-	//D(c);
-         ind++;
 
   return 0;
 }

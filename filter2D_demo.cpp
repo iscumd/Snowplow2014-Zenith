@@ -56,8 +56,9 @@ int main ( int, char** argv )
          GetHorizontalEdges(src, dst);//In Edge Functions
          GetVerticalEdges( src, dst2);
 	
-         imshow( "Horziontal Multiplied By 8",  (dst*8) );
-         imshow( "Vertical Multiplied By 8", (dst2*8) );
+	//imshow() expects values to be between 0 and 1 so I needed to properly shift it.
+         imshow( "Horziontal Multiplied By 8",  ((dst/32767)*8) + .5);
+         imshow( "Vertical Multiplied By 8", ((dst2/32768)*8) + .5);
          c = waitKey(0);
 
   return 0;
