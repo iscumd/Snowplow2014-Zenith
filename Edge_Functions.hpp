@@ -45,11 +45,11 @@ void GetMagnatudeAndDirection(cv::Mat &horizontal, cv::Mat &vertical, cv::Mat &m
 
 	double hor_cel, ver_cel;
 	
-	if((horizontal.cols != vertical.cols) || (horizontal.rows != vertical.row)){
+	/*if((horizontal.cols != vertical.cols) || (horizontal.rows != vertical.row)){
 	
 		fprintf(stderr, "Uh Oh! not the same size");
 		
-	}
+	}*/
 	
 	for(int i = 0; i < horizontal.cols; i++){
 	
