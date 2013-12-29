@@ -37,7 +37,7 @@ int main ( int, char** argv )
 
   int c;
 
- Mat src, hor, ver, fin;
+ Mat src, hor, ver, fin,
  Mat * mag;
  Mat * dir;
   /// Load an image
